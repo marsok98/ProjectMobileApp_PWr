@@ -2,6 +2,7 @@ package com.example.projectmobileapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,8 +10,9 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.*;
 
+import java.io.ByteArrayOutputStream;
+
 public class AddingBeerActivity extends AppCompatActivity {
-    private static final int CAMERA_REQUEST = 1888;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     EditText editTextBeerName;
     EditText editTextKindName;
@@ -24,6 +26,7 @@ public class AddingBeerActivity extends AppCompatActivity {
     Intent cameraIntent;
     ImageView imageView;
     MyDatabaseHelper myDB;
+    byte[] blobFromCamera;
 
 
 
@@ -53,8 +56,7 @@ public class AddingBeerActivity extends AppCompatActivity {
         buttonAddPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent,CAMERA_REQUEST);
+                dispatchTakePictureIntent();
             }
         });
 
@@ -62,19 +64,43 @@ public class AddingBeerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myDB = new MyDatabaseHelper(AddingBeerActivity.this);
-                /*myDB.addBeer(   editTextBeerName.getText().toString().trim(),
+                myDB.addBeer(   editTextBeerName.getText().toString().trim(),
                                 editTextKindName.getText().toString().trim(),
                                 editTextPrice.getText().toString().trim(),
                                 editTextPercentOfAlcohol.getText().toString().trim(),
                                 ratingBarAboutBeer.getRating(),
                                 ratingBarSweetness.getRating(),
                                 ratingBarHopiness.getRating(),
-                                null
-                            );*/
-                myDB.addBeer(null,null,null,null,0, 0,0,null);
+                                blobFromCamera
+                            );
+                //myDB.addBeer(null,null,null,null,0, 0,0,null);
+
 
             }
         });
+
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.PNG,0,byteArrayOutputStream);
+
+            imageView.setImageBitmap(imageBitmap);
+            blobFromCamera = byteArrayOutputStream.toByteArray();
+        }
+    }
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        try {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        } catch (ActivityNotFoundException e) {
+            // display error state to the user
+        }
     }
 
 }

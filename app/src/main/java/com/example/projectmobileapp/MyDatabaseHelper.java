@@ -63,7 +63,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_RATE_BEER,rateAboutBeer);
         cv.put(COLUMN_HOPINESS,hopiness);
         cv.put(COLUMN_SWEETNESS,sweetness);
-        //cv.put(COLUMN_PHOTO,image);
+        cv.put(COLUMN_PHOTO,image);
 
         long result = db.insert(TABLE_NAME,null,cv);
         if(result == -1)
