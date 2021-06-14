@@ -13,14 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//klasa CustomAdapter powstala z tego wzgledu, ze musielismy wyswietlac dane w recyclerView
+//to wymaga zdefiniowania pomocniczej klasy
+
+
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
+    //definiujemy listy tych wartosci ktore dostaniemy z bazy danych
     Context context;
     ArrayList<Integer> beer_id;
     ArrayList<String> name,kind,price,percentOfAlcohol;
     ArrayList<Float> rateAboutBeer,hopiness,sweetness;
     ArrayList<byte[]> image;
-
+    //konstruktor
     CustomAdapter(Context context,ArrayList<Integer> beer_id,ArrayList<String> name, ArrayList<String> kind, ArrayList<String> price,ArrayList<String> percentOfAlcohol,
                   ArrayList<Float> rateAboutBeer,ArrayList<Float> hopiness, ArrayList<Float> sweetness,  ArrayList<byte[]> image)
     {
@@ -36,6 +41,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.image = image;
 
     }
+
+    //funkcja przepisana z dokumentacji
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,6 +52,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         return new MyViewHolder(view);
     }
 
+    //wrzucanie na recyclerView danych
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.id.setText(String.valueOf(beer_id.get(position)));
@@ -55,7 +63,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.rate.setText(String.valueOf(rateAboutBeer.get(position)));
         holder.hopiness.setText(String.valueOf(hopiness.get(position)));
         holder.sweetness.setText(String.valueOf(sweetness.get(position)));
-        //holder.image.setImageBitmap(BitmapFactory.decodeByteArray(image.get(7),0,image.get(7).length));
+        if(image.get(position) != null)
+        {
+            //zabezpieczenie, gdyby nie bylo obrazka
+            //tym razem z byte array na bitmape
+            holder.image.setImageBitmap(BitmapFactory.decodeByteArray(image.get(position),0,image.get(position).length));
+        }
+
+
+
+
 
     }
 
@@ -64,8 +81,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         return beer_id.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
 
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        //pobranie uchwytow do pol z pliku my_row.xml
         TextView id,name,kind,price,percent,rate,hopiness,sweetness;
         ImageView image;
         public MyViewHolder(@NonNull View itemView) {
@@ -79,7 +97,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             hopiness = itemView.findViewById(R.id.textViewHopiness);
             sweetness = itemView.findViewById(R.id.textViewSweetness);
             image = itemView.findViewById(R.id.imageView3);
-
         }
     }
 }

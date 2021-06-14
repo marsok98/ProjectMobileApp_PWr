@@ -27,7 +27,7 @@ public class AddingBeerActivity extends AppCompatActivity {
     ImageView imageView;
     MyDatabaseHelper myDB;
     byte[] blobFromCamera;
-
+    //w taki sposob blob jest definiowany
 
 
     @Override
@@ -64,6 +64,7 @@ public class AddingBeerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myDB = new MyDatabaseHelper(AddingBeerActivity.this);
+                //dodajemy do bazy danych, na przycisk
                 myDB.addBeer(   editTextBeerName.getText().toString().trim(),
                                 editTextKindName.getText().toString().trim(),
                                 editTextPrice.getText().toString().trim(),
@@ -81,10 +82,14 @@ public class AddingBeerActivity extends AppCompatActivity {
 
 
     }
+    // jest to przeciazenie ktore wywolania sie wtedy kiedy przyjdzie result z aktywnosci
+    //gdy zgadzaja sie kody tzn ze to przyszlo z kamery, zapisujemy to do bloba
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
+            //tak jest opisane "data"
+            //dostajemy bitmape a musimy zmienic na tablice bajtow
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             imageBitmap.compress(Bitmap.CompressFormat.PNG,0,byteArrayOutputStream);
@@ -94,6 +99,7 @@ public class AddingBeerActivity extends AppCompatActivity {
         }
     }
 
+    //metoda do brania zdjecia z aparatu
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         try {

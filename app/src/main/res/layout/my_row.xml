@@ -9,20 +9,42 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fadingEdge="horizontal|vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textViewHopiness"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/textViewAboutAlc2"
+                android:layout_width="15dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="56dp"
+                android:text="zl"
+                app:layout_constraintStart_toEndOf="@+id/textViewName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewAboutKind"
+                android:layout_width="58dp"
+                android:layout_height="21dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="Gatunek"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewId"
+                app:layout_constraintStart_toEndOf="@+id/textViewId" />
+
+            <TextView
+                android:id="@+id/textViewHopiness"
+                android:layout_width="29dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="56dp"
                 android:text="Hopiness"
-                app:layout_constraintStart_toEndOf="@+id/textViewAlcohol"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewHopiSweet"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -30,19 +52,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="Sweet"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewRate" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewHopiness"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewHopiness" />
 
             <TextView
                 android:id="@+id/textViewAlcohol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="160dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Alc"
-                app:layout_constraintStart_toEndOf="@+id/textViewId"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewAboutAlc"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -50,30 +75,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="name"
-                app:layout_constraintStart_toEndOf="@+id/textViewId"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewAboutName"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
                 android:text="Price"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewKind" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewAboutAlc2"
+                app:layout_constraintStart_toEndOf="@+id/textViewAboutAlc2" />
 
             <TextView
                 android:id="@+id/textViewKind"
                 android:layout_width="33dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:text="Kind"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewId" />
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewId"
+                app:layout_constraintStart_toEndOf="@+id/textViewAboutKind" />
 
             <TextView
                 android:id="@+id/textViewId"
@@ -81,9 +108,8 @@
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:text="1"
-                android:textSize="30sp"
+                android:textSize="50sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,22 +117,62 @@
                 android:id="@+id/textViewRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="160dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Rate"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewId" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewRate1"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="79dp"
-                android:layout_height="59dp"
-                android:layout_marginEnd="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="308dp"
+                android:layout_height="264dp"
+                android:layout_marginTop="72dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.666"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSweetness"
                 tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewAboutName"
+                android:layout_width="58dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Nazwa"
+                app:layout_constraintStart_toEndOf="@+id/textViewId"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewAboutAlc"
+                android:layout_width="15dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="%"
+                app:layout_constraintStart_toEndOf="@+id/textViewName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewRate1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="Ocena:"
+                app:layout_constraintStart_toEndOf="@+id/textViewAlcohol"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewHopiSweet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Hop/Sweet"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewPrice"
+                app:layout_constraintStart_toEndOf="@+id/textViewPrice" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

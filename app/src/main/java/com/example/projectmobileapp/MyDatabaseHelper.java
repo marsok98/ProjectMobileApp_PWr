@@ -14,7 +14,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "Beers.db";
     private static final int DATABASE_VERSION = 1;
-
+    //stworzenie zmiennych zeby latwiej sie poslugiwac
     private static final String TABLE_NAME = "my_library";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_NAME = "name";
@@ -25,12 +25,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_HOPINESS = "hopinessRate";
     private static final String COLUMN_SWEETNESS = "sweetnessRate";
     private static final String COLUMN_PHOTO = "photo";
-
+    //domyslny konstruktor
     public MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
-
+    //tworzenie metody do zrobienia bazy danych
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query =
@@ -46,17 +46,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                         COLUMN_PHOTO + " BLOB); ";
         db.execSQL(query);
     }
-
+    //metoda upgradowania bazy danych
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " +TABLE_NAME);
         onCreate(db);
 
     }
+
     void addBeer(String name,String kind, String price, String percentOfAlcohol, float rateAboutBeer,float hopiness, float sweetness,byte[] image)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
+        ContentValues cv = new ContentValues();//w ten sposob dodajemy to
+        //mozna zrobic tak jak wczesniej jako przy tworzeniu tabeli
         cv.put(COLUMN_NAME,name);
         cv.put(COLUMN_KIND,kind);
         cv.put(COLUMN_PRICE,price);
@@ -65,7 +67,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_HOPINESS,hopiness);
         cv.put(COLUMN_SWEETNESS,sweetness);
         cv.put(COLUMN_PHOTO,image);
-
+        //wrzucenie do bazy danych
         long result = db.insert(TABLE_NAME,null,cv);
         if(result == -1)
         {
@@ -76,7 +78,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context,"Added Succesfully",Toast.LENGTH_SHORT).show();
         }
     }
-
+    //funkcja ktora zwroci nam wszystkie recordy z bazy danych
     Cursor readAllData()
     {
         String query = "SELECT * FROM " +TABLE_NAME;
@@ -85,6 +87,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = null;
         if(db != null)
         {
+            //rawQuery wrzuca query i zwroci cursor do wszystkich danych
             cursor = db.rawQuery(query,null);
         }
         return  cursor;
