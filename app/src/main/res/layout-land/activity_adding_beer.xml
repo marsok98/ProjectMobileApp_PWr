@@ -8,11 +8,10 @@
 
     <Button
         android:id="@+id/buttonSaveToDatabase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="277dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#FFFFFF"
         android:text="SAVE"
         app:backgroundTint="#A155B639"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,43 +21,44 @@
         android:id="@+id/textViewRateHopiness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Rate Hopiness"
+        android:layout_marginBottom="8dp"
+        android:text="@string/rate_hopiness"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/ratingBarHopiness"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.861"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewRateSweetness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="4dp"
         android:text="Rate Sweetness"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/ratingBarSweetness"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent" />
 
     <RatingBar
         android:id="@+id/ratingBarSweetness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/ratingBarHopiness"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddPhoto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent" />
 
     <RatingBar
         android:id="@+id/ratingBarHopiness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSaveToDatabase"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.942"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -66,11 +66,10 @@
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="136dp"
         android:ems="10"
         android:hint="How much alcohol?"
         android:inputType="textPersonName"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/ratingBarAboutBeer"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -79,7 +78,6 @@
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="136dp"
         android:ems="10"
         android:hint="Price"
         android:inputType="textPersonName"
@@ -104,11 +102,11 @@
         android:id="@+id/ratingBarAboutBeer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="44dp"
         android:numStars="5"
         app:layout_constraintBottom_toTopOf="@+id/ratingBarSweetness"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -138,8 +136,8 @@
 
     <Button
         android:id="@+id/buttonAddPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="301dp"
+        android:layout_height="46dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:text="PHOTO"

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layoutDescription="@xml/my_row_scene">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdge="horizontal|vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewAboutAlc2"
+                android:layout_width="15dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="56dp"
+                android:text="zl"
+                app:layout_constraintStart_toEndOf="@+id/textViewName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewAboutKind"
+                android:layout_width="58dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginBottom="12dp"
+                android:text="Gatunek"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewId"
+                app:layout_constraintStart_toEndOf="@+id/textViewId" />
+
+            <TextView
+                android:id="@+id/textViewHopiness"
+                android:layout_width="29dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="56dp"
+                android:text="Hopiness"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewHopiSweet"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewSweetness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:text="Sweet"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewHopiness"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.26"
+                app:layout_constraintStart_toEndOf="@+id/textViewHopiness" />
+
+            <TextView
+                android:id="@+id/textViewAlcohol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Alc"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewAboutAlc"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="name"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewAboutName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Price"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewAboutAlc2"
+                app:layout_constraintStart_toEndOf="@+id/textViewAboutAlc2" />
+
+            <TextView
+                android:id="@+id/textViewKind"
+                android:layout_width="33dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="Kind"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewId"
+                app:layout_constraintStart_toEndOf="@+id/textViewAboutKind" />
+
+            <TextView
+                android:id="@+id/textViewId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="1"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Rate"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textViewRate1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="308dp"
+                android:layout_height="264dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSweetness"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewAboutName"
+                android:layout_width="58dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="16dp"
+                android:text="Nazwa"
+                app:layout_constraintStart_toEndOf="@+id/textViewId"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewAboutAlc"
+                android:layout_width="15dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="%"
+                app:layout_constraintStart_toEndOf="@+id/textViewName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewRate1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="Ocena:"
+                app:layout_constraintStart_toEndOf="@+id/textViewAlcohol"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewHopiSweet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Hop/Sweet"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewPrice"
+                app:layout_constraintStart_toEndOf="@+id/textViewPrice" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
